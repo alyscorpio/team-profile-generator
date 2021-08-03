@@ -39,6 +39,7 @@ const addManager = () => {
         .then((answers) => {
             const manager = new Manager(answers.name, answers.id, answers.email, answers.office);
             teamMembers.push(manager);
+            nextMember();
         });
 }
 
@@ -69,6 +70,7 @@ const addEngineer = () => {
         .then((answers) => {
             const engineer = new Engineer(answers.name, answers.id, answers.email, answers.github);
             teamMembers.push(engineer);
+            nextMember();
         });
 }
 
@@ -101,6 +103,31 @@ const addIntern = () => {
             teamMembers.push(intern);
         });
 }
+
+const nextMember = () => {
+    return inquirer
+        .prompt([
+            {
+                type: "list",
+                message: "Great! Now let's finish adding your team members. What type of employee do you want to add next?",
+                choices: ["Engineer", "Intern", "I'm done adding team members"],
+                name: "employee"
+            }
+        ])
+        .then((answers) => {
+            if (answers.employee === "Engineer") {
+                addEngineer();
+            } else if (answers.employee === "Intern") {
+                addIntern();
+            } else {
+                const generateHTML = teamHTML(answers);
+                fs.writeFile("new.html", generateHTML, (err) =>
+                err ? console.log(err) : console.log("Awesome! Your new team profile has been created!")
+                );
+            }
+        })
+}
+
 
 const teamHTML = (answers) =>
 
@@ -147,3 +174,5 @@ const teamHTML = (answers) =>
 </body>
 </html>
 `
+
+addManager();

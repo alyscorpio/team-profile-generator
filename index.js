@@ -102,3 +102,48 @@ const addIntern = () => {
         });
 }
 
+const teamHTML = (answers) =>
+
+`
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>Team Profile</title>
+</head>
+<body>
+    <header>
+        <h1>My Team</h1>
+    </header>
+    <main id="info-blocks">
+        <div class="row">
+            <div class="card">
+                <div class="card-head">
+                    <h3 class="name">${manager.getName()}</h3>
+                    <h4 class="role">${manager.getRole()}</h4>
+                </div>
+                <div class="card-info">
+                    <p class="id">ID: ${manager.getId()}</p>
+                    <a class="email">Email:  ${manager.getEmail()}</a>
+                    <p class="office">Office: ${manager.getOffice()}</p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-head">
+                    <h3 class="name">${engineer.getName()}</h3>
+                    <h4 class="role">${engineer.getRole()}</h4>
+                </div>
+                <div class="card-info">
+                    <p class="id">ID: ${engineer.getId()}</p>
+                    <a class="email">Email:  ${engineer.getEmail()}</a>
+                    <p class="office">Office: ${engineer.getOffice()}</p>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
+`

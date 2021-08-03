@@ -4,9 +4,9 @@ const inquirer = require("inquirer");
 const fs = require("fs");
 
 // import classes
-const Manager = require("./lib/Manager");
-const Engineer = require("./lib/Engineer");
-const Intern = require("./lib/Intern");
+const manager = require("./lib/Manager");
+const engineer = require("./lib/Engineer");
+const intern = require("./lib/Intern");
 
 // array for new team members
 const teamMembers = [];

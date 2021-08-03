@@ -18,17 +18,17 @@ const addManager = () => {
             {
                 type: "input",
                 name: "name",
-                message: "What is the team manager's name?"  
+                message: "What is the manager's name?"  
             },
             {
                 type: "input",
                 name: "id",
-                message: "What is the team employee id?"  
+                message: "What is the manager's employee id?"  
             },
             {
                 type: "input",
                 name: "email",
-                message: "What is the team manager's email?"  
+                message: "What is the manager's email?"  
             },
             {
                 type: "input",
@@ -39,6 +39,66 @@ const addManager = () => {
         .then((answers) => {
             const manager = new Manager(answers.name, answers.id, answers.email, answers.office);
             teamMembers.push(manager);
-            nextMember();
         });
 }
+
+const addEngineer = () => {
+    return inquirer
+        .prompt([
+            {
+                type: "input",
+                name: "name",
+                message: "What is the engineer's name?"  
+            },
+            {
+                type: "input",
+                name: "id",
+                message: "What is the engieer's employee id?"  
+            },
+            {
+                type: "input",
+                name: "email",
+                message: "What is the engineer's email?"  
+            },
+            {
+                type: "input",
+                name: "github",
+                message: "What is the engineer's GitHub username?"
+            }
+        ])
+        .then((answers) => {
+            const engineer = new Engineer(answers.name, answers.id, answers.email, answers.github);
+            teamMembers.push(engineer);
+        });
+}
+
+const addIntern = () => {
+    return inquirer
+        .prompt([
+            {
+                type: "input",
+                name: "name",
+                message: "What is the intern's name?"  
+            },
+            {
+                type: "input",
+                name: "id",
+                message: "What is the intern's employee id?"  
+            },
+            {
+                type: "input",
+                name: "email",
+                message: "What is the intern's email?"  
+            },
+            {
+                type: "input",
+                name: "school",
+                message: "What is the intern's school?"
+            }
+        ])
+        .then((answers) => {
+            const intern = new Intern(answers.name, answers.id, answers.email, answers.school);
+            teamMembers.push(intern);
+        });
+}
+
